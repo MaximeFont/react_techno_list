@@ -1,0 +1,28 @@
+.menu {
+    font-size: 1.2em;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+li {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    color: purple;
+}
+
+.activeLink {
+    font-weight: 900;
+    color: red;
+}
