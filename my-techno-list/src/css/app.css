@@ -1,4 +1,9 @@
 @import './home.css';
 @import './menu.css';
 @import './technoAdd.css';
-@import './technoList.css'
+@import './technoList.css';
+@import './technoItem.css';
+
+body {
+    background: #262a2b;
+}

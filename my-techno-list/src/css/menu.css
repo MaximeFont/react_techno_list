@@ -1,5 +1,6 @@
 .menu {
     font-size: 1.2em;
+
 }
 
 ul {
@@ -15,7 +16,7 @@ li {
 
 a {
     text-decoration: none;
-    color: black;
+    color: #b7b7b7;
 }
 
 a:hover {
@@ -24,5 +25,8 @@ a:hover {
 
 .activeLink {
     font-weight: 900;
-    color: red;
+    font-size: 2em;
+    background: -webkit-linear-gradient(45deg, #0ABFBC, #FC354C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

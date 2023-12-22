@@ -4,14 +4,16 @@ export default function TechnoList(props) {
     const { technos, handleDeleteTechno } = props;
 
     return (
-        <div className="techno-list">
-            <h1>All Technos</h1>
-            <div>
-                {
-                    technos.map(techno => (
-                        <TechnoItem techno={techno} key={techno.technoid} handleDeleteTechno={handleDeleteTechno} />
-                    ))
-                }
+        <div>
+            {/* <h1>All Technos</h1> */}
+            <div className="techno-list">
+                <div className="list">
+                    {
+                        technos.map(techno => (
+                            <TechnoItem techno={techno} key={techno.technoid} handleDeleteTechno={handleDeleteTechno} />
+                        ))
+                    }
+                </div>
             </div>
         </div>
     );
