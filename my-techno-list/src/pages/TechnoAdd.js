@@ -27,32 +27,38 @@ export default function TechnoAdd(props) {
         <div className="techno-add">
             <div className="techno-form">
                 <form onSubmit={(event) => handleSubmit(event)}>
-                    <label htmlFor="technoname">Name:</label>
+                    <div className="input-container ic1">
+                        <input className="input" type="text" name="technoname" id="technoname" value={techno.technoname} onChange={(event) => handleChange(event)} placeholder=" " />
+                        <div className="cut cut-name"></div>
+                        <label htmlFor="technoname" className="placeholder">Name</label>
+                    </div>
+                    <div className="select-container">
+                        <label htmlFor="technocategory">Category:</label>
+                        <br />
+                        <select name="technocategory" id="technocategory" value={techno.technocategory} onChange={(event) => handleChange(event)}>
+                            <option value="">Select a category</option>
+                            <option value="front">Front</option>
+                            <option value="back">Back</option>
+                            <option value="fullstack">Full stack</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div className="input-container ic2">
+                        <textarea
+                            className="large-input input"
+                            placeholder=" "
+                            name="technodescription"
+                            id="technodescription"
+                            cols="30"
+                            rows="10"
+                            value={techno.technodescription}
+                            onChange={(event) => handleChange(event)}
+                        ></textarea>
+                        <div className="cut cut-description"></div>
+                        <label htmlFor="technodescription" className="placeholder">Description</label>
+                    </div>
                     <br />
-                    <input type="text" name="technoname" id="technoname" value={techno.technoname} onChange={(event) => handleChange(event)} />
-                    <br />
-                    <label htmlFor="technocategory">Category:</label>
-                    <br />
-                    <select name="technocategory" id="technocategory" value={techno.technocategory} onChange={(event) => handleChange(event)}>
-                        <option value="">Select a category</option>
-                        <option value="front">Front</option>
-                        <option value="back">Back</option>
-                        <option value="fullstack">Full stack</option>
-                        <option value="other">Other</option>
-                    </select>
-                    <br />
-                    <label htmlFor="technodescription">Description:</label>
-                    <br />
-                    <textarea
-                        name="technodescription"
-                        id="technodescription"
-                        cols="30"
-                        rows="10"
-                        value={techno.technodescription}
-                        onChange={(event) => handleChange(event)}
-                    ></textarea>
-                    <br />
-                    <input type="submit" value="Add Techno" />
+                    <input className="submit" type="submit" value="Add Techno" />
                 </form>
             </div>
         </div>
