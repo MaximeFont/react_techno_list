@@ -32,16 +32,16 @@ export default function TechnoAdd(props) {
                         <div className="cut cut-name"></div>
                         <label htmlFor="technoname" className="placeholder">Name</label>
                     </div>
-                    <div className="select-container">
-                        <label htmlFor="technocategory">Category:</label>
-                        <br />
-                        <select name="technocategory" id="technocategory" value={techno.technocategory} onChange={(event) => handleChange(event)}>
+                    <div className="select-container input-container">
+                        <select className="input input-select" name="technocategory" id="technocategory" value={techno.technocategory} onChange={(event) => handleChange(event)}>
                             <option value="">Select a category</option>
                             <option value="front">Front</option>
                             <option value="back">Back</option>
                             <option value="fullstack">Full stack</option>
                             <option value="other">Other</option>
                         </select>
+                        <div className="cut-select"></div>
+                        <label className="select-placeholder" htmlFor="technocategory">Category</label>
                     </div>
                     <div className="input-container ic2">
                         <textarea

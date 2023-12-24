@@ -2,13 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 50px;
 }
 
 .techno-form {
     background-color: #3F4B57;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: fit-content;
     padding: 20px;
     width: 320px;
 }
@@ -21,7 +22,7 @@
 
 
 .ic1 {
-    margin-top: 40px;
+    margin-top: 10px;
 }
 
 .ic2 {
@@ -66,12 +67,28 @@
     width: 76px;
 }
 
+.cut-select {
+    background-color: #3F4B57;
+    border-radius: 10px;
+    height: 20px;
+    width: 68px;
+    left: 20px;
+    position: absolute;
+    top: -12px;
+    transform: translateY(0);
+    transition: transform 200ms;
+}
+
 .cut-name {
     width: 52px;
 }
 
 .cut-description {
     width: 78px;
+}
+
+.input-select:focus~.cut-select {
+    transform: translateY(8px);
 }
 
 .input:focus~.cut,
@@ -91,6 +108,23 @@
     top: 20px;
 }
 
+.select-placeholder {
+    opacity: 0;
+    color: #65657b;
+    font-family: sans-serif;
+    left: 20px;
+    pointer-events: none;
+    position: absolute;
+    transform-origin: 0 50%;
+    transition: transform 200ms, color 200ms, opacity 100ms;
+    top: 20px;
+}
+
+.input:focus~.select-placeholder {
+    opacity: 1;
+    transform: translateY(-25px) translateX(10px) scale(0.75);
+}
+
 .input:focus~.placeholder,
 .input:not(:placeholder-shown)~.placeholder {
     transform: translateY(-30px) translateX(10px) scale(0.75);
@@ -100,9 +134,11 @@
     color: #808097;
 }
 
-
-
 .input:focus~.placeholder {
+    color: #FC354C;
+}
+
+.input:focus~.select-placeholder {
     color: #FC354C;
 }
 
@@ -118,6 +154,7 @@
     font-size: 18px;
     height: 50px;
     margin-top: 150px;
+    margin-bottom: 10px;
     outline: 0;
     text-align: center;
     width: 100%;
@@ -127,4 +164,22 @@
     background: #FC354C;
     background: -webkit-linear-gradient(to right, #FC354C, #0ABFBC);
     background: linear-gradient(to right, #FC354C, #0ABFBC);
+}
+
+.select-container {
+    margin-top: 20px;
+}
+
+.select-container select {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    margin-top: 8px;
+    outline: 0;
+    padding: 15px 15px 5px;
 }

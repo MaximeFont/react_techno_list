@@ -16,12 +16,10 @@ function App() {
   const [storedTechnos, setStoredTechnos] = useLocalStorage(STORAGE_KEY, [])
 
   useEffect(() => {
-    console.log("use effect with []");
     setTechnos(storedTechnos);
   }, []);
 
   useEffect(() => {
-    console.log("use effect [technos]");
     setStoredTechnos(technos);
   }, [technos]);
 
