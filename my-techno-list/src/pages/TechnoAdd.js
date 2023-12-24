@@ -33,7 +33,7 @@ export default function TechnoAdd(props) {
                         <label htmlFor="technoname" className="placeholder">Name</label>
                     </div>
                     <div className="select-container input-container">
-                        <select className="input input-select" name="technocategory" id="technocategory" value={techno.technocategory} onChange={(event) => handleChange(event)}>
+                        <select className={`input input-select ${techno.technocategory.trim() !== "" ? "has-value" : ""}`} name="technocategory" id="technocategory" value={techno.technocategory} onChange={(event) => handleChange(event)}>
                             <option value="">Select a category</option>
                             <option value="front">Front</option>
                             <option value="back">Back</option>

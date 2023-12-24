@@ -20,7 +20,6 @@
     width: 100%;
 }
 
-
 .ic1 {
     margin-top: 10px;
 }
@@ -87,7 +86,8 @@
     width: 78px;
 }
 
-.input-select:focus~.cut-select {
+.input-select:focus~.cut-select,
+.input.has-value~.cut-select {
     transform: translateY(8px);
 }
 
@@ -110,7 +110,7 @@
 
 .select-placeholder {
     opacity: 0;
-    color: #65657b;
+    color: #808097;
     font-family: sans-serif;
     left: 20px;
     pointer-events: none;
@@ -120,7 +120,8 @@
     top: 20px;
 }
 
-.input:focus~.select-placeholder {
+.input:focus~.select-placeholder,
+.input.has-value~.select-placeholder {
     opacity: 1;
     transform: translateY(-25px) translateX(10px) scale(0.75);
 }
