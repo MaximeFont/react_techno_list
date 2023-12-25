@@ -28,7 +28,7 @@ function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPopUp(false);
-    }, 3000);
+    }, 5000);
     return (() => clearTimeout(timer));
   }, [showPopUp])
 

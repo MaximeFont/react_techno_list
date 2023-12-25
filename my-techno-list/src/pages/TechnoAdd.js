@@ -17,6 +17,15 @@ export default function TechnoAdd(props) {
         }
     }, [popup]);
 
+    const [hide, setHide] = useState(false);
+    useEffect(() => {
+        if (popup) {
+            setTimeout(() => setHide(true), 4500)
+        } else {
+            setHide(false);
+        }
+    }, [hide, popup]);
+
     function handleSubmit(evt) {
         evt.preventDefault();
         handleAddTechno(techno);
@@ -36,7 +45,7 @@ export default function TechnoAdd(props) {
         <div className="techno-add">
             {popup && (
                 <div
-                    className={`popup ${visible ? "popup-visible" : ""}`}>
+                    className={`popup ${visible ? "popup-visible" : ""} ${hide ? "popup-hidden" : ""}`}>
                     {popup}
                 </div>
             )}

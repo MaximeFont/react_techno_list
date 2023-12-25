@@ -1,4 +1,3 @@
-/* .alert, .popup { */
 .popup {
     background: #FC354C;
     font-size: 1.5em;
@@ -17,6 +16,11 @@
     transition: top 0.2s ease-in-out;
 }
 
+.popup.popup-hidden {
+    top: -200px;
+}
+
 .popup-visible {
     top: 10px;
+    transition: top 0.2s ease-in-out;
 }
