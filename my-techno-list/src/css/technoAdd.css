@@ -50,7 +50,7 @@
     font-size: 14px;
     height: 400%;
     outline: 0;
-    padding: 15px 20px 0;
+    padding: 15px 20px 10px;
     width: 100%;
 }
 
@@ -183,4 +183,25 @@
     margin-top: 8px;
     outline: 0;
     padding: 15px 15px 5px;
+}
+
+/* style general textarea */
+textarea {
+    resize: none;
+}
+
+/* style specifique chrome */
+textarea::-webkit-scrollbar {
+    width: 3px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: #959595;
+}
+
+textarea::-webkit-scrollbar-track {
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
