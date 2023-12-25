@@ -187,21 +187,26 @@
 
 /* style general textarea */
 textarea {
-    resize: none;
+    resize: none;    
 }
 
 /* style specifique chrome */
 textarea::-webkit-scrollbar {
-    width: 3px;
+    width: 7px;
 }
 
 textarea::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background: #959595;
+    border: 3px solid transparent;
+    background-clip: padding-box;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    border: 0;
 }
 
 textarea::-webkit-scrollbar-track {
-    margin-right: 10px;
     margin-top: 10px;
     margin-bottom: 10px;
 }

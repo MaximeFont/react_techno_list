@@ -1,6 +1,6 @@
 .menu {
     font-size: 1.2em;
-
+    margin: 20px 20px;
 }
 
 ul {
@@ -20,7 +20,9 @@ a {
 }
 
 a:hover {
-    color: purple;
+    background: -webkit-linear-gradient(45deg, #0ABFBC, #FC354C);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .activeLink {
