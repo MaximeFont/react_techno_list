@@ -9,11 +9,13 @@ import './css/app.css';
 import Home from './pages/Home';
 import TechnoAdd from './pages/TechnoAdd';
 import TechnoList from './pages/TechnoList';
+import PopUp from './components/PopUp';
 
 function App() {
   const [technos, setTechnos] = useState([]);
   const STORAGE_KEY = 'technos';
-  const [storedTechnos, setStoredTechnos] = useLocalStorage(STORAGE_KEY, [])
+  const [storedTechnos, setStoredTechnos] = useLocalStorage(STORAGE_KEY, []);
+  const [showPopUp, setShowPopUp] = useState(false);
 
   useEffect(() => {
     setTechnos(storedTechnos);
@@ -23,7 +25,23 @@ function App() {
     setStoredTechnos(technos);
   }, [technos]);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPopUp(false);
+    }, 3000);
+    return (() => clearTimeout(timer));
+  }, [showPopUp])
+
+  function handleShowPopUp() {
+    setShowPopUp(true);
+  }
+
   function handleAddTechno(techno) {
+    if (techno.technocategory === '' || techno.technoname === '' || techno.technodescription === '') {
+      handleShowPopUp();
+      return;
+    }
+
     setTechnos([...technos, { ...techno, technoid: uuidv4() }]);
   }
 
@@ -31,12 +49,17 @@ function App() {
     setTechnos(technos.filter((tech) => tech.technoid !== technoid));
   }
 
+  let popup = null;
+  if (showPopUp) {
+    popup = <PopUp />;
+  }
+
   return (
     <>
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} />} />
+        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} popup={popup} />} />
         <Route path="/list" element={<TechnoList technos={technos} handleDeleteTechno={handleDeleteTechno} />} />
       </Routes>
     </>

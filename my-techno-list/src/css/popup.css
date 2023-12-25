@@ -1,0 +1,22 @@
+/* .alert, .popup { */
+.popup {
+    background: #FC354C;
+    font-size: 1.5em;
+    color: #262a2b;
+    width: 500px;
+    height: 100px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 9999;
+    top: -200px;
+    transition: top 0.2s ease-in-out;
+}
+
+.popup-visible {
+    top: 10px;
+}

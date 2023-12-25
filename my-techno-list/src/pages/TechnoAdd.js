@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function TechnoAdd(props) {
     const [techno, setTechno] = useState({
@@ -6,7 +6,16 @@ export default function TechnoAdd(props) {
         technocategory: '',
         technodescription: '',
     });
-    const { handleAddTechno } = props;
+    const { handleAddTechno, popup } = props;
+
+    const [visible, setVisible] = useState(false);
+    useEffect(() => {
+        if (popup) {
+            setVisible(true);
+        } else {
+            setTimeout(() => setVisible(false), 200)
+        }
+    }, [popup]);
 
     function handleSubmit(evt) {
         evt.preventDefault();
@@ -25,6 +34,12 @@ export default function TechnoAdd(props) {
 
     return (
         <div className="techno-add">
+            {popup && (
+                <div
+                    className={`popup ${visible ? "popup-visible" : ""}`}>
+                    {popup}
+                </div>
+            )}
             <div className="techno-form">
                 <form onSubmit={(event) => handleSubmit(event)}>
                     <div className="input-container ic1">

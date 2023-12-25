@@ -3,6 +3,7 @@
 @import './technoAdd.css';
 @import './technoList.css';
 @import './technoItem.css';
+@import './popup.css';
 
 * {
     padding: 0;
