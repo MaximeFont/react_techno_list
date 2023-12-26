@@ -37,7 +37,7 @@
     font-size: 18px;
     height: 100%;
     outline: 0;
-    padding: 4px 20px 0;
+    padding: 0 20px 0;
     width: 100%;
 }
 
@@ -52,6 +52,20 @@
     outline: 0;
     padding: 15px 20px 10px;
     width: 100%;
+}
+
+.select-container select {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    margin-top: 8px;
+    outline: 0;
+    padding: 0 15px ;
 }
 
 .cut {
@@ -182,7 +196,7 @@
     width: 100%;
     margin-top: 8px;
     outline: 0;
-    padding: 15px 15px 5px;
+    padding: 0 15px ;
 }
 
 /* style general textarea */
