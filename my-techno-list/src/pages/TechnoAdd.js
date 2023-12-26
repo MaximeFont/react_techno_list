@@ -6,7 +6,7 @@ export default function TechnoAdd(props) {
         technocategory: '',
         technodescription: '',
     });
-    const { handleAddTechno, popup } = props;
+    const { handleAddTechno, handleShowPopUp, popup } = props;
 
     const [visible, setVisible] = useState(false);
     useEffect(() => {
@@ -27,6 +27,11 @@ export default function TechnoAdd(props) {
     }, [hide, popup]);
 
     function handleSubmit(evt) {
+        if (techno.technocategory === '' || techno.technoname === '' || techno.technodescription === '') {
+            handleShowPopUp();
+            evt.preventDefault();
+            return;
+        }
         evt.preventDefault();
         handleAddTechno(techno);
         setTechno({

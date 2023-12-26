@@ -37,8 +37,7 @@ function App() {
   }
 
   function handleAddTechno(techno) {
-    if (techno.technocategory === '' || techno.technoname === '' || techno.technodescription === '') {
-      handleShowPopUp();
+    if (showPopUp) {
       return;
     }
 
@@ -59,7 +58,7 @@ function App() {
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} popup={popup} />} />
+        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} handleShowPopUp={handleShowPopUp} popup={popup} />} />
         <Route path="/list" element={<TechnoList technos={technos} handleDeleteTechno={handleDeleteTechno} />} />
       </Routes>
     </>
