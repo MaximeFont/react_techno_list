@@ -9,7 +9,6 @@ import './css/app.css';
 import Home from './pages/Home';
 import TechnoAdd from './pages/TechnoAdd';
 import TechnoList from './pages/TechnoList';
-import PopUp from './components/PopUp';
 
 function App() {
   const [technos, setTechnos] = useState([]);
@@ -48,17 +47,12 @@ function App() {
     setTechnos(technos.filter((tech) => tech.technoid !== technoid));
   }
 
-  let popup = null;
-  if (showPopUp) {
-    popup = <PopUp />;
-  }
-
   return (
     <>
       <Menu />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} handleShowPopUp={handleShowPopUp} popup={popup} />} />
+        <Route path="/add" element={<TechnoAdd handleAddTechno={handleAddTechno} handleShowPopUp={handleShowPopUp} showPopUp={showPopUp} />} />
         <Route path="/list" element={<TechnoList technos={technos} handleDeleteTechno={handleDeleteTechno} />} />
       </Routes>
     </>

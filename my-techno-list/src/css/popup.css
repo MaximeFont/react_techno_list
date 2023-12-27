@@ -1,5 +1,4 @@
 .popup {
-    background: #FC354C;
     font-size: 1.5em;
     color: #262a2b;
     width: 500px;
@@ -14,6 +13,14 @@
     z-index: 9999;
     top: -200px;
     transition: top 0.2s ease-in-out;
+}
+
+.red-color {
+    background: #FC354C;
+}
+
+.green-color {
+    background: #0ABFBC;
 }
 
 .popup.popup-hidden {

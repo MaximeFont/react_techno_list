@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import PopUp from '../components/PopUp';
 
 export default function TechnoAdd(props) {
     const [techno, setTechno] = useState({
@@ -6,33 +7,41 @@ export default function TechnoAdd(props) {
         technocategory: '',
         technodescription: '',
     });
-    const { handleAddTechno, handleShowPopUp, popup } = props;
+    const { handleAddTechno, handleShowPopUp, showPopUp } = props;
 
     const [visible, setVisible] = useState(false);
     useEffect(() => {
-        if (popup) {
+        if (showPopUp) {
             setVisible(true);
         } else {
-            setTimeout(() => setVisible(false), 200)
+            setTimeout(() => setVisible(false), 200);
         }
-    }, [popup]);
+    }, [showPopUp]);
 
     const [hide, setHide] = useState(false);
     useEffect(() => {
-        if (popup) {
-            setTimeout(() => setHide(true), 4500)
+        if (showPopUp) {
+            setTimeout(() => setHide(true), 4500);
         } else {
             setHide(false);
         }
-    }, [hide, popup]);
+    }, [showPopUp]);
+
+    const [popupColor, setPopupColor] = useState(null);
+    const [content, setContent] = useState(null);
 
     function handleSubmit(evt) {
         if (techno.technocategory === '' || techno.technoname === '' || techno.technodescription === '') {
+            setContent("Oh no ! Something is missing !");
+            setPopupColor('red')
             handleShowPopUp();
             evt.preventDefault();
             return;
         }
         evt.preventDefault();
+        setContent("The list has been updated correctly !");
+        setPopupColor('green');
+        handleShowPopUp();
         handleAddTechno(techno);
         setTechno({
             technoname: '',
@@ -48,10 +57,10 @@ export default function TechnoAdd(props) {
 
     return (
         <div className="techno-add">
-            {popup && (
+            {showPopUp && (
                 <div
-                    className={`popup ${visible ? "popup-visible" : ""} ${hide ? "popup-hidden" : ""}`}>
-                    {popup}
+                    className={`popup ${visible ? "popup-visible" : ""} ${hide ? "popup-hidden" : ""} ${popupColor === 'green' ? "green-color" : ""} ${popupColor === 'red' ? "red-color" : ""}`}>
+                    <PopUp content={content} />
                 </div>
             )}
             <div className="techno-form">

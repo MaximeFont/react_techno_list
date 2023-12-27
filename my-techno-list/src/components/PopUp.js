@@ -1,8 +1,10 @@
-export default function PopUp () {
+export default function PopUp(props) {
+
+    const { content } = props;
 
     return (
-        <div className="alert">
-            <div>Oh No, something is missing !</div>
+        <div>
+            <div>{content}</div>
         </div>
     );
 }
